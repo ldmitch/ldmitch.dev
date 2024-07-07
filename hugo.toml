@@ -1,3 +1,33 @@
 baseURL = "https://ldmitch.dev/"
 languageCode = "en-CA"
-title = "Liam Mitchell's Site"
+title = "Liam Mitchell's site"
+copyright = "Liam Mitchell (CC BY 4.0)"
+
+# Generate a nice robots.txt for SEO
+enableRobotsTXT = true
+
+# Setup syntax highlighting without inline styles. For more information about
+# why you'd want to avoid inline styles, see
+# https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/style-src#unsafe_inline_styles
+[markup]
+  [markup.highlight]
+    lineNos = true
+    lineNumbersInTable = false
+    noClasses = false
+
+[params]
+  description = "Liam Mitchell's personal site"
+  favicon = "images/favicon-32x32.png"
+  madeWith = "Layouts and styling based on [Bear Cub](https://github.com/clente/hugo-bearcub)"
+  designedToLast = "This page is [designed to last](https://jeffhuang.com/designed_to_last/)"
+
+  # For site metadata
+  [params.social]
+    github = "ldmitch"
+
+  # Author metadata. This is mostly used for the RSS feed of your site, but the
+  # email is also added to the footer of each post. You can hide the "reply to"
+  # link by using a `hideReply` param in front matter.
+  [params.author]
+    name = "Liam Mitchell" # Your name as shown in the RSS feed metadata
+    email = "liam@ldmitch.dev" # Added to the footer so readers can reply to posts

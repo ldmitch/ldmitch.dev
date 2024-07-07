@@ -1,0 +1,50 @@
+{{ define "main" }}
+<content>
+    {{ if .Data.Singular }}
+    <h3 class="blog-filter">{{ "filtering for" }} "{{ .Title }}"</h3>
+    {{ end }}
+    <ul class="blog-posts">
+        {{ if .Pages }}
+        <li>
+            <span><strong>Published</strong></span>
+            <span><strong>Updated</strong></span>
+            <span><strong>Title</strong></span>
+        </li>
+        {{ end }}
+        {{ range .Pages }}
+        <li>
+            <span>
+                <i>
+                    <time datetime='{{ .Date.Format "January 2, 2006" }}' pubdate>
+                        {{ .Date | time.Format ":date_medium" }}
+                    </time>
+                </i>
+            </span>
+            <span>
+                <i>
+                    <time datetime='{{ .Lastmod.Format "January 2, 2006" }}'>
+                        {{ .Lastmod | time.Format ":date_medium" }}
+                    </time>
+                </i>
+            </span>
+            {{ if .Params.link }}
+            <a href="{{ .Params.link }}" target="_blank">{{ .Title }} ↪</a>
+            {{ else }}
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            {{ end }}
+        </li>
+        {{ else }}
+        <li>
+            <span>No posts yet</span>
+        </li>
+        {{ end }}
+    </ul>
+    {{ if not .Data.Singular }}
+    <div>
+        {{ range .Site.Taxonomies.tags }}
+        <a class="blog-tags" href="{{ .Page.RelPermalink }}">#{{ lower .Page.Title }}</a>
+        {{ end }}
+    </div>
+    {{ end }}
+</content>
+{{ end }}
