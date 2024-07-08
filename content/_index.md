@@ -12,26 +12,45 @@ posts are mostly for my own reference, so they might not always be fully
 up-to-date, but if you notice any issues you can
 [message me on Signal](https://signal.me/#eu/D9ahAdeW8Zbb9Nlp_Priz3iuK5Cce0le33frY5Xlt31O0QdNprdF5ZmoxcCf88Ga)
 or [create an issue in the GitHub repository](https://github.com/ldmitch/ldmitch.dev/issues/new).
+Alternatively, my main forms of contact are listed below:
+
+[![Email](/images/email-light.webp)](mailto:liam.mitchell@uwaterloo.ca)
+[![GitHub](/images/github-light.webp)](https://github.com/ldmitch)
+[![LinkedIn](/images/linkedin-light.webp)](https://www.linkedin.com/in/liamdmitchell/)
+[![Signal](/images/signal-light.webp)](https://signal.me/#eu/D9ahAdeW8Zbb9Nlp_Priz3iuK5Cce0le33frY5Xlt31O0QdNprdF5ZmoxcCf88Ga)
+
+Icons by [Icons8](https://icons8.com/)
 
 ### Design philosophy
 
-> The internet has become a bloated mess. Huge JavaScript libraries, countless
-> client-side queries and overly complex frontend frameworks are par for the
-> course these days.
->
-> --- [Kev Quirk](https://512kb.club/)
+*Note that this section does not reflect my views on the web in general, nor do I
+believe that all or even most sites should follow this philosophy. This is just
+an explanation of how I have designed my own site to maximize maintainability
+and usability, while serving its intended purpose as simply as possible.*
 
-I have tried to incorporate some of the guidelines outlined in Dr. Jeff Huang's
+> But let's say some small part of the web starts designing websites to last for
+> content that is meant to last. What happens then? Well, people may prefer to
+> link to them since they have a promise of working in the future. People more
+> generally may be more mindful of making their pages more permanent. And users
+> and archivers both save bandwidth when visiting and storing these pages.
+>
+> --- [Jeff Huang](https://jeffhuang.com/)
+
+I have tried to incorporate most of the guidelines outlined in Dr. Jeff Huang's
 [Designed to Last](https://jeffhuang.com/designed_to_last/). This site includes
 no JavaScript, nor does it load any third-party resources. I.e., native fonts
-are used, hotlinking is not. HTML and CSS are unminimized, allowing you to smash
-that ~~like button~~ *view page source* button and inspect the markup.
+are used, hot linking is not. JavaScript is not inherently evil, but for a small
+personal site focused on text content, I believe it to be unnecessary and a
+source of increased maintenance overhead. My HTML and CSS files are unminimized,
+allowing you to smash that ~~like button~~ *view page source* button and inspect
+the markup. I use the WebP image format wherever possible to reduce bandwidth
+consumption.
 
 The only major deviation I have made from Dr. Huang's proposed guidelines is the
 suggested use of a single page over several. I have used [Hugo](https://gohugo.io/)
 to build the site, which constructs web pages using "templates" that merge with
 content written in Markdown format. This allows me to write content more easily,
-en lieu of basic HTML pages.
+in lieu of basic HTML pages.
 
 Should Hugo ever be discontinued in the future, the existing deployment would
 not be affected, and I can make adjustments- it would be fairly trivial to
