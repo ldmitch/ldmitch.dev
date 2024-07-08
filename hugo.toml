@@ -30,4 +30,4 @@ enableRobotsTXT = true
   # link by using a `hideReply` param in front matter.
   [params.author]
     name = "Liam Mitchell" # Your name as shown in the RSS feed metadata
-    email = "liam@ldmitch.dev" # Added to the footer so readers can reply to posts
+    email = "liam.mitchell@uwaterloo.ca" # Added to the footer so readers can reply to posts
