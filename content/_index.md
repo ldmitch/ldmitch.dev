@@ -23,37 +23,43 @@ Icons by [Icons8](https://icons8.com/)
 
 ### Design philosophy
 
-*Note that this section does not reflect my views on the web in general, nor do I
-believe that all or even most sites should follow this philosophy. This is just
-an explanation of how I have designed my own site to maximize maintainability
-and usability, while serving its intended purpose as simply as possible.*
+*Note that this section does not reflect my views on the web in general, nor do
+I believe that all or even most sites should follow this philosophy. The
+following few paragraphs are an explanation of how I have designed my own site
+to maximize maintainability and usability, while serving its intended purpose as
+simply as possible.*
 
-> But let's say some small part of the web starts designing websites to last for
+I have tried to incorporate most of the guidelines outlined in Dr. Huang's
+[This Page is Designed to Last](https://jeffhuang.com/designed_to_last/),
+outlined in the snipped below.
+
+> Let's say some small part of the web starts designing websites to last for
 > content that is meant to last. What happens then? Well, people may prefer to
 > link to them since they have a promise of working in the future. People more
 > generally may be more mindful of making their pages more permanent. And users
 > and archivers both save bandwidth when visiting and storing these pages.
 >
-> --- [Jeff Huang](https://jeffhuang.com/)
+> --- [Dr. Jeff Huang](https://jeffhuang.com/)
 
-I have tried to incorporate most of the guidelines outlined in Dr. Jeff Huang's
-[Designed to Last](https://jeffhuang.com/designed_to_last/). This site includes
-no JavaScript, nor does it load any third-party resources. I.e., native fonts
-are used, hot linking is not. JavaScript is not inherently evil, but for a small
-personal site focused on text content, I believe it to be unnecessary and a
-source of increased maintenance overhead. My HTML and CSS files are unminimized,
-allowing you to smash that ~~like button~~ *view page source* button and inspect
-the markup. I use the WebP image format wherever possible to reduce bandwidth
-consumption.
+This site includes no JavaScript, nor does it load any third-party resources.
+I.e., native fonts are used, hot linking is not. JavaScript is not inherently
+evil, but for a small personal site focused on text content, I believe it to be
+an unnecessary source of increased maintenance overhead. I use the WebP image
+format wherever possible to reduce bandwidth consumption. I do minimize CSS
+against the suggestion, but this whole site is
+[open-sourced](https://github.com/ldmitch/ldmitch.dev), anyway, and I want to
+make it as light as possible.
 
-The only major deviation I have made from Dr. Huang's proposed guidelines is the
-suggested use of a single page over several. I have used [Hugo](https://gohugo.io/)
-to build the site, which constructs web pages using "templates" that merge with
+The only other deviation I have made from Dr. Huang's proposed guidelines is the
+suggested use of a single page over several. I use [Hugo](https://gohugo.io/) to
+build the site, which constructs web pages using "templates" that merge with
 content written in Markdown format. This allows me to write content more easily,
 in lieu of basic HTML pages.
 
 Should Hugo ever be discontinued in the future, the existing deployment would
-not be affected, and I can make adjustments- it would be fairly trivial to
-recompile all of my templates into full HTML files for each page on the site. I
-find this to be an adequately resilient setup, balancing a practical writing
-experience with avoiding third-party dependencies as much as possible.
+not be affected, "built to last". If I wanted to make more changes to the site,
+it would be fairly trivial to recompile all of my templates into full HTML files
+for each page. Or I could just migrate my Markdown files to a new static site
+generator. I find this to be an adequately resilient setup, maintaining a
+practical writing experience while avoiding third-party dependencies as much as
+possible.
