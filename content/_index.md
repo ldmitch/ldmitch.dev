@@ -41,10 +41,12 @@ outlined in the snipped below.
 >
 > --- [Dr. Jeff Huang](https://jeffhuang.com/)
 
-This site includes no JavaScript, nor does it load any third-party resources.
-I.e., native fonts are used, hot linking is not. JavaScript is not inherently
-evil, but for a small personal site focused on text content, I believe it to be
-an unnecessary source of increased maintenance overhead. I use the WebP image
+This site includes no JavaScript other than Cloudflare's injected [email address
+obfuscation](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
+script, nor does it load any additional third-party resources. I.e., native
+fonts are used, hot linking is not. JavaScript is not inherently evil, but for a
+small personal site focused on text content, I believe it to be a mostly
+unnecessary source of increased maintenance overhead. I use the WebP image
 format wherever possible to reduce bandwidth consumption. I do minimize CSS
 against the suggestion, but this whole site is
 [open-sourced](https://github.com/ldmitch/ldmitch.dev), anyway, and I want to
