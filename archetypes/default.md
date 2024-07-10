@@ -6,5 +6,4 @@ lastmod = {{ .Date }}
 description = ""
 draft = true
 tags = []
-categories = []
 +++
