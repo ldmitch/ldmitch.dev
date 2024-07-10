@@ -7,3 +7,7 @@
   Feature-Policy: microphone 'none'; payment 'none'; geolocation 'none'; midi 'none'; sync-xhr 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'
   Content-Security-Policy: default-src 'none'; manifest-src 'self'; font-src 'self'; img-src 'self'; style-src 'self'; form-action 'none'; frame-ancestors 'none'; base-uri 'none'
   X-XSS-Protection: 1; mode=block
+
+/*.xml
+  ! Content-Security-Policy
+  Content-Security-Policy : default-src 'none'; img-src 'self' data: https://www.w3.org/; style-src 'self' 'unsafe-inline'; block-all-mixed-content; base-uri 'none'
