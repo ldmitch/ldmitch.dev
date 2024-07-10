@@ -29,7 +29,7 @@ following few paragraphs are an explanation of how I have designed my own site
 to maximize maintainability and usability, while serving its intended purpose as
 simply as possible.*
 
-I have tried to incorporate most of the guidelines outlined in Dr. Huang's
+I have tried to incorporate most of the guidelines discussed in Dr. Huang's
 [This Page is Designed to Last](https://jeffhuang.com/designed_to_last/),
 outlined in the snipped below.
 
@@ -52,14 +52,14 @@ make it as light as possible.
 
 The only other deviation I have made from Dr. Huang's proposed guidelines is the
 suggested use of a single page over several. I use [Hugo](https://gohugo.io/) to
-build the site, which constructs web pages using "templates" that merge with
-content written in Markdown format. This allows me to write content more easily,
-in lieu of basic HTML pages.
+build the site, which stitches together web pages using "templates" that merge
+with documents written in Markdown format. This allows me to write content more
+easily, in lieu of basic HTML pages.
 
 Should Hugo ever be discontinued in the future, the existing deployment would
-not be affected, "built to last". If I wanted to make more changes to the site,
-it would be fairly trivial to recompile all of my templates into full HTML files
-for each page. Or I could just migrate my Markdown files to a new static site
-generator. I find this to be an adequately resilient setup, maintaining a
-practical writing experience while avoiding third-party dependencies as much as
-possible.
+not be affected; the site is "built to last". If I wanted to make more changes
+to the site, it would be fairly trivial to recompile all of my templates into
+full HTML files for each page. Or I could just migrate my Markdown files to a
+new static site generator. I find this to be an adequately resilient setup,
+maintaining a practical writing experience while avoiding third-party
+dependencies in my workflow to a reasonable degree.
