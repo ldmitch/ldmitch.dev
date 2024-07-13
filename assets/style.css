@@ -31,8 +31,9 @@ a {
   border: 0;
 }
 .title h1 {
+  border-bottom: 2px solid #eee;
   font-size: 24px;
-  margin: 19.92px 0 19.92px 0;
+  margin: 20px 0 20px 0;
 }
 
 .title span {
