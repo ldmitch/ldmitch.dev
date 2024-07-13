@@ -4,7 +4,7 @@ menu: "main"
 weight: 1
 ---
 
-### About
+## About
 
 This is my personal website. It will eventually link to my various self-hosted
 services along with blog posts on how I set them up, among other topics. These
@@ -21,7 +21,7 @@ Alternatively, my main forms of contact are listed below:
 
 Icons by [Icons8](https://icons8.com/)
 
-### Design philosophy
+## Design philosophy
 
 *Note that this section does not reflect my views on the web in general, nor do
 I believe that all or even most sites should follow this philosophy. The
