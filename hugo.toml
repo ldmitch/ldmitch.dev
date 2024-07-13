@@ -1,4 +1,4 @@
-baseURL = ""
+baseURL = "https://ldmitch.dev"
 languageCode = "en-CA"
 title = "Liam Mitchell's site"
 copyright = "Liam Mitchell (CC BY 4.0)"
