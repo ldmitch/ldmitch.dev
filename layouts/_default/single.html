@@ -3,13 +3,12 @@
 <h1>{{ .Title }}</h1>
 <p class="byline">
     <time datetime='{{ .Date.Format "January 2, 2006" }}' pubdate>
-        published {{ .Date | time.Format ":date_medium" }}
+        First published {{ .Date | time.Format ":date_medium" }}
     </time>
-    ·
+    |
     <time datetime='{{ .Date.Format "January 2, 2006" }}' pubdate>
-        updated {{ .Lastmod | time.Format ":date_medium" }}
+        Last updated {{ .Lastmod | time.Format ":date_medium" }}
     </time>
-    {{ with .Params.author }}· written by {{.}}{{ end }}
 </p>
 {{ end }}
 <content>
