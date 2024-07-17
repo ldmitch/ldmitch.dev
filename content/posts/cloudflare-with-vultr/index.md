@@ -3,7 +3,7 @@ author = "Liam Mitchell"
 title = "Cloudflare With Vultr"
 date = 2024-07-15T19:20:20-07:00
 lastmod = 2024-07-15T19:20:20-07:00
-description = "How to secure access to a Vultr server with a Cloudflare tunnel"
+description = "How to secure access to a Vultr server with Cloudflare Tunnel"
 draft = true
 tags = ["vultr", "cloudflare"]
 +++
@@ -79,4 +79,20 @@ you don't know what it does.
 ## 3: Rent a VPS from Vultr
 
 It's very straightforward to rent and deploy a VPS on Vultr with the web user
-interface.
+interface. I will summarize the steps but really you can just follow the prompts
+and end up with the right product.
+
+- Go to the [Vultr dashboard](https://my.vultr.com) and either create an account
+  or sign-in to your existing one.
+- Click the big blue "Deploy +" button at the top right of the screen and select
+  "Cloud Compute - Shared CPU" (unless you know you need dedicted resources).
+- Choose the closest region to you.
+- Feel free to select the Linux operating system you are most familiar with, but
+  note that Cloudflare Tunnel only natively supports Debian and Windows out of
+  Vultr's current options, so if in doubt, just pick Debian 12.
+  - [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/)
+    is how we will secure SSH access to the server. Debian and Red Hat are the
+    two Linux distributions natively supported, so you can probably also go with
+    Ubuntu or Fedora on your VPS instead of Debian without too much trouble, but
+    I have only tested Debian myself.
+
