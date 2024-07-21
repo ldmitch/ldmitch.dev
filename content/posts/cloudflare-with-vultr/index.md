@@ -208,4 +208,28 @@ and [enabling browser rendering](https://developers.cloudflare.com/cloudflare-on
 - Enable browser rendering for SSH:
 
   ![enable-browser-rendering](enable-browser-rendering.webp)
-- Click "Add application"
+- Click "Add application".
+- Now to test:
+  - Open your subdomain in a new browser tab, `ssh.yourdomain.abc`
+  - You should see a prompt asking for your email address like the one below.
+    Enter the address your added to the policy earlier:
+
+    ![email-prompt](email-prompt.webp)
+
+  - Check your inbox and either click the link that Cloudflare sent you or copy
+    and paste the six-digit code they sent.
+  - You will see a new prompt asking for a user. Enter "root" (this is the auto
+    generated user that Vultr set up for your VPS):
+
+    ![user-prompt](user-prompt.webp)
+
+  - You will then need to enter the same password you used earlier when
+    connecting by SSH from your own terminal/PowerShell window. This can be
+    found by going to the [Vultr dashboard](https://my.vultr.com) and clicking
+    on your VPS, if you forgot:
+
+    ![Vultr-server-overview](server-overview.webp)
+
+  - You should now be connected to your VPS via SSH in the browser:
+
+    ![browser-rendered-terminal](browser-rendered-terminal.webp)
