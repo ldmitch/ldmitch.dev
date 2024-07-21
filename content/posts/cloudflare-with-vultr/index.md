@@ -14,6 +14,9 @@ tags = ["vultr", "cloudflare"]
 
 1. [Buy a domain](#1-buy-a-domain-name-with-cloudflare)
 2. [Configure the domain](#2-configure-the-new-domains-security-settings)
+3. [Rent a VPS](#3-rent-a-vps-from-vultr)
+4. [Install a tunnel](#4-install-cloudflare-tunnel)
+5. [Access your VPS from the browser](#5-access-your-vps-from-the-browser)
 
 ## 1: Buy a domain name with Cloudflare
 
@@ -113,7 +116,9 @@ and end up with the right product.
 
 This next part is how we'll stop anyone from connecting to the server over SSH
 except users you explicitly allow via
-[Cloudflare Zero Trust](https://developers.cloudflare.com/cloudflare-one/).
+[Cloudflare Zero Trust](https://developers.cloudflare.com/cloudflare-one/). I'll
+be summarizing the [official docs](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/use-cases/ssh/#connect-to-ssh-server-with-cloudflared-access)
+once again.
 
 - Open the [Cloudflare dashboard](https://dash.cloudflare.com) and select "Zero
   Trust" from the sidebar.
@@ -165,3 +170,42 @@ except users you explicitly allow via
       ![route-tunnel](route-tunnel.webp)
 
     - Once the fields are filled out correctly, you can save the tunnel.
+
+## 5: Access your VPS from the browser
+
+Next up, we are going to add a self-hosted application to Cloudflare Zero Trust
+so that we can enable browser rendering of an SSH terminal, allowing you to
+securely access your VPS from any devices. I am summarizing the official docs on
+[adding a self-hosted application](https://developers.cloudflare.com/cloudflare-one/applications/configure-apps/self-hosted-apps/)
+and [enabling browser rendering](https://developers.cloudflare.com/cloudflare-one/applications/non-http/#enable-browser-rendering).
+
+- From the sidebar, pick "Access" then "Applications":
+
+  ![access-applications](access-applications.webp)
+
+- Click "Add an application" and pick the "Self-hosted" type.
+- Enter a name like "vultr-ssh", and set the session duration to something
+  convenient but secure for your devices. This is how long the browser will
+  remember you after you authenticate, so obviously pick a very low value if
+  you use shared devices.
+- Pick the same subdomain-domain combination that you used for your tunnel,
+  which is probably something like `ssh.yourdomain.abc`
+- Scroll down to "Identity providers" and set the parameters like so:
+
+  ![identity-providers](identity-providers.webp)
+
+  - The above settings setup your authentication page so that you will be
+    prompted to enter an email address, and if that email is on the allowlist,
+    it will be sent a one-time code that you can paste into your browser and
+    authenticate yourself.
+- Click "Next", then enter a policy name like "allowed-email-addresses".
+- Scroll down to "Configure rules" and pick the "Emails" selector, adding your
+  email address to the value:
+
+  ![policy-rules](policy-rules.webp)
+
+- Click "Next" and scroll down to the bottom of the page.
+- Enable browser rendering for SSH:
+
+  ![enable-browser-rendering](enable-browser-rendering.webp)
+- Click "Add application"
