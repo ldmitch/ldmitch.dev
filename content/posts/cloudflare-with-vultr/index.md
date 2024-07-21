@@ -10,6 +10,11 @@ tags = ["vultr", "cloudflare"]
 
 ## Motivation
 
+## Contents
+
+1. [Buy a domain](#1-buy-a-domain-name-with-cloudflare)
+2. [Configure the domain](#2-configure-the-new-domains-security-settings)
+
 ## 1: Buy a domain name with Cloudflare
 
 While it isn't strictly necessary to use Cloudflare as your registrar, it will
@@ -88,13 +93,11 @@ and end up with the right product.
   "Cloud Compute - Shared CPU" (unless you know you need dedicted resources).
 - Choose the closest region to you.
 - Feel free to select the Linux operating system you are most familiar with, but
-  note that Cloudflare Tunnel only natively supports Debian and Windows out of
-  Vultr's current options, so if in doubt, just pick Debian 12.
+  note that Cloudflare Tunnel only natively supports Debian and Redhat-based
+  distributions. You can pick Debian or Ubuntu, or any of the
+  RedHat/Fedora-esque distros like Alma or CentOS. I will be using Ubuntu LTS.
   - [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/)
-    is how we will secure SSH access to the server. Debian and Red Hat are the
-    two Linux distributions natively supported, so you can probably also go with
-    Ubuntu or Fedora on your VPS instead of Debian without too much trouble, but
-    I have only tested Debian myself.
+    is how we will secure SSH access to the server later.
 - For the hardware plan (CPU, RAM, etc.), you can be conservative with what you
   pick at first. With Vultr, it's easy to upgrade to a more powerful VPS but you
   can't downgrade (yet). You should look up the hardware requirements of the
@@ -103,7 +106,7 @@ and end up with the right product.
   on a self-hosted Synapse server.
 - For "Additional Features", make sure "IPv6" is selected, and then choose
   anything else you're interested in.
-- Set a server hostname and click "Deploy Now". Wait for the installation to
+- Pick any server hostname and click "Deploy Now". Wait for the installation to
   complete and then we're good to go.
 
 ## 4: Install Cloudflare Tunnel
@@ -124,14 +127,14 @@ except users you explicitly allow via
 
   ![networks-tunnels](networks-tunnels.webp)
 
-- Click "Create a tunnel" and then pick the "Cloudflared" option. You can choose
-  whatever name you like, but picking the same name as your Vultr VPS may
+- Click "Create a tunnel" and then pick the "Cloudflare***d***" option. You can
+  choose whatever name you like, but picking the same name as your Vultr VPS may
   simplify things.
 - You will now be prompted to "Install and run a connector". To do this, we are
-  going to connect to the VPS via SSH.
-  - From the [Vultr Compute page](https://developers.cloudflare.com/cloudflare-one/),
-    click on your VPS. In the overview, you should see a few fields, namely an
-    IP address, username, and password:
+  going to connect to the VPS via SSH:
+  - From the [Vultr dashboard](https://my.vultr.com), click on your VPS. In the
+    overview, you should see a few fields, namely an IP address, username, and
+    password:
 
     ![Vultr-server-overview](server-overview.webp)
 
@@ -139,12 +142,26 @@ except users you explicitly allow via
     `ssh <username>@<IP address>`, replacing the values with the ones listed
     for your VPS.
   - Follow the prompts shown in your terminal, and paste the password when
-    asked. If everyone went smoothly, you should see `<username>@<VPS name>:~#`
-    in your terminal. You can enter the `w` command to double check that you are
+    asked. If things went smoothly, you should see `<username>@<VPS name>:~#` in
+    your terminal. You can enter the `w` command to double check that you are
     logged in, as well as from what IP address you're connecting from:
 
     ![w-command](w.webp)
 
     - I already have a tunnel setup on this server, so my client IP address (the
       "FROM" column) isn't shown here, but yours should be.
-- Returning to the Cloudflare dashboard, 
+    - Returning now to "Install and run connectors" page of the tunnel
+      configuration, choose either Debian or RedHat depending on what your VPS
+      OS is based on.
+    - Select "64-bit" as your architecture, then copy the command labeled for
+      "If you don't have cloudflared installed on your machine".
+    - Paste the copied command into your terminal with the active SSH
+      connection, and wait for it to finish.
+    - Return to the tunnel page in your browser, and you should see a new entry
+      under "Connectors", meaning that your VPS was connected successfully.
+    - Click "Next", and then fill out the fields like I have below, choosing
+      your domain name from the dropdown menu:
+
+      ![route-tunnel](route-tunnel.webp)
+
+    - Once the fields are filled out correctly, you can save the tunnel.
