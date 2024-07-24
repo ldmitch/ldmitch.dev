@@ -22,7 +22,7 @@
 {{ if not .Params.hideReply }}
 {{ with .Site.Params.author.email }}
 <p>
-    <a href='mailto:{{ . }}?subject={{ "email-subject" }}"{{ default $.Site.Title $.Page.Title }}"'>
+    <a href='mailto:{{ . }}?subject={{ default $.Site.Title $.Page.Title }}'>
         reply to this post by email ↩
     </a>
 </p>
