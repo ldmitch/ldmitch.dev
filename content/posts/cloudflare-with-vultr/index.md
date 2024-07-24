@@ -1,8 +1,8 @@
 +++
 author = "Liam Mitchell"
 title = "Cloudflare With Vultr"
-date = 2024-07-15T19:20:20-07:00
-lastmod = 2024-07-15T19:20:20-07:00
+date = 2024-07-15
+lastmod = 2024-07-15
 description = "How to secure access to a Vultr server with Cloudflare Tunnel"
 draft = true
 tags = ["vultr", "cloudflare"]
@@ -17,6 +17,7 @@ tags = ["vultr", "cloudflare"]
 3. [Rent a VPS](#3-rent-a-vps-from-vultr)
 4. [Install a tunnel](#4-install-cloudflare-tunnel)
 5. [Access your VPS from the browser](#5-access-your-vps-from-the-browser)
+6. [Settings the Vultr firewall](#6-setting-the-vultr-firewall)
 
 ## 1: Buy a domain name with Cloudflare
 
@@ -96,21 +97,27 @@ and end up with the right product.
   "Cloud Compute - Shared CPU" (unless you know you need dedicted resources).
 - Choose the closest region to you.
 - Feel free to select the Linux operating system you are most familiar with, but
-  note that Cloudflare Tunnel only natively supports Debian and Redhat-based
+  note that Cloudflare tunnels only natively support Debian and Redhat-based
   distributions. You can pick Debian or Ubuntu, or any of the
-  RedHat/Fedora-esque distros like Alma or CentOS. I will be using Ubuntu LTS.
+  RedHat/Fedora-esque distros including Alma and CentOS. I'll be going with
+  Ubuntu LTS.
   - [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/)
-    is how we will secure SSH access to the server later.
+    is how we will secure SSH access to the server later, but you don't need to
+    worry about it just yet.
 - For the hardware plan (CPU, RAM, etc.), you can be conservative with what you
   pick at first. With Vultr, it's easy to upgrade to a more powerful VPS but you
   can't downgrade (yet). You should look up the hardware requirements of the
-  services you're interested in hosting to decide. For instance, Matrix
-  recommends at least 1 GB of RAM if you plan on joining large, federated rooms
-  on a self-hosted Synapse server.
+  services you're interested in hosting to decide.
+  - For instance, while Matrix/Element <cite>don't currently publish hardware
+    requirements[^1]</cite>, most online resources recommend at least 1 GB of
+    RAM and plenty of storage space for messages/media. Since I want to run my
+    own Synapse server, I configured my VPS with 2 GB of RAM and a 50 GB NVMe.
 - For "Additional Features", make sure "IPv6" is selected, and then choose
   anything else you're interested in.
 - Pick any server hostname and click "Deploy Now". Wait for the installation to
   complete and then we're good to go.
+
+[^1]: See Synapse [issue 6367](https://github.com/element-hq/synapse/issues/6367)
 
 ## 4: Install Cloudflare Tunnel
 
@@ -127,7 +134,7 @@ once again.
 
   - If this is your first time opening Zero Trust, you might get a prompt asking
     you to choose your Cloudflare account and whatnot. Just follow the prompts.
-- You will get a brand new sidebar on your screen! Pick "Networks" and then
+- You'll get a brand new sidebar on your screen, so pick "Networks" and then
   "Tunnels".
 
   ![networks-tunnels](networks-tunnels.webp)
@@ -135,47 +142,47 @@ once again.
 - Click "Create a tunnel" and then pick the "Cloudflare***d***" option. You can
   choose whatever name you like, but picking the same name as your Vultr VPS may
   simplify things.
-- You will now be prompted to "Install and run a connector". To do this, we are
+- You'll now be prompted to "Install and run a connector". To do this, we are
   going to connect to the VPS via SSH:
   - From the [Vultr dashboard](https://my.vultr.com), click on your VPS. In the
-    overview, you should see a few fields, namely an IP address, username, and
-    password:
+    overview, you should see a few fields, namely an IP address, username (which
+    should be "root"), and password:
 
     ![Vultr-server-overview](server-overview.webp)
 
   - Open up a terminal or PowerShell window, then type
-    `ssh <username>@<IP address>`, replacing the values with the ones listed
-    for your VPS.
+    `ssh root@<IP address>`, replacing `<IP address>` with the one listed for
+    your VPS.
   - Follow the prompts shown in your terminal, and paste the password when
-    asked. If things went smoothly, you should see `<username>@<VPS name>:~#` in
-    your terminal. You can enter the `w` command to double check that you are
-    logged in, as well as from what IP address you're connecting from:
+    asked. If things went smoothly, you should see `root@<VPS name>:~#` in your
+    terminal. You can enter the `w` command to double check that you are logged
+    in, as well as from what IP address you're connecting from:
 
     ![w-command](w.webp)
 
     - I already have a tunnel setup on this server, so my client IP address (the
       "FROM" column) isn't shown here, but yours should be.
-    - Returning now to "Install and run connectors" page of the tunnel
-      configuration, choose either Debian or RedHat depending on what your VPS
-      OS is based on.
-    - Select "64-bit" as your architecture, then copy the command labeled for
-      "If you don't have cloudflared installed on your machine".
-    - Paste the copied command into your terminal with the active SSH
-      connection, and wait for it to finish.
-    - Return to the tunnel page in your browser, and you should see a new entry
-      under "Connectors", meaning that your VPS was connected successfully.
-    - Click "Next", and then fill out the fields like I have below, choosing
-      your domain name from the dropdown menu:
+- Returning now to "Install and run connectors" page of the tunnel 
+  configuration in Cloudflare, choose either Debian or RedHat depending on what
+  your VPS operating system is based on.
+- Select "64-bit" as your architecture, then copy the command labeled for "If
+  you don't have cloudflared installed on your machine".
+- Paste the copied command into your terminal with the active SSH connection,
+  and wait for it to finish.
+- Return to the tunnel page in your browser, and you should see a new entry
+  under "Connectors", meaning that your VPS was connected successfully.
+- Click "Next", and then fill out the fields like I have below, choosing your
+  domain name from the dropdown menu:
 
-      ![route-tunnel](route-tunnel.webp)
+  ![route-tunnel](route-tunnel.webp)
 
-    - Once the fields are filled out correctly, you can save the tunnel.
+- Once the fields are filled out correctly, you can save the tunnel.
 
 ## 5: Access your VPS from the browser
 
 Next up, we are going to add a self-hosted application to Cloudflare Zero Trust
 so that we can enable browser rendering of an SSH terminal, allowing you to
-securely access your VPS from any devices. I am summarizing the official docs on
+securely access your VPS from any device. I am summarizing the official docs on
 [adding a self-hosted application](https://developers.cloudflare.com/cloudflare-one/applications/configure-apps/self-hosted-apps/)
 and [enabling browser rendering](https://developers.cloudflare.com/cloudflare-one/applications/non-http/#enable-browser-rendering).
 
@@ -185,9 +192,9 @@ and [enabling browser rendering](https://developers.cloudflare.com/cloudflare-on
 
 - Click "Add an application" and pick the "Self-hosted" type.
 - Enter a name like "vultr-ssh", and set the session duration to something
-  convenient but secure for your devices. This is how long the browser will
-  remember you after you authenticate, so obviously pick a very low value if
-  you use shared devices.
+  convenient but secure for your devices.
+  - This is how long the browser will remember you after you authenticate, so
+    obviously pick a very low value if you use shared devices.
 - Pick the same subdomain-domain combination that you used for your tunnel,
   which is probably something like `ssh.yourdomain.abc`
 - Scroll down to "Identity providers" and set the parameters like so:
@@ -204,26 +211,27 @@ and [enabling browser rendering](https://developers.cloudflare.com/cloudflare-on
 
   ![policy-rules](policy-rules.webp)
 
-- Click "Next" and scroll down to the bottom of the page.
-- Enable browser rendering for SSH:
+- Click "Next" and scroll down to the bottom of the page. Enable browser
+  rendering for SSH:
 
   ![enable-browser-rendering](enable-browser-rendering.webp)
+
 - Click "Add application".
 - Now to test:
   - Open your subdomain in a new browser tab, `ssh.yourdomain.abc`
   - You should see a prompt asking for your email address like the one below.
-    Enter the address your added to the policy earlier:
+    Enter the address that you added to the policy earlier:
 
     ![email-prompt](email-prompt.webp)
 
   - Check your inbox and either click the link that Cloudflare sent you or copy
-    and paste the six-digit code they sent.
-  - You will see a new prompt asking for a user. Enter "root" (this is the auto
+    and paste the six-digit code.
+  - You'll see a new prompt asking for a user. Enter "root" (this is the auto
     generated user that Vultr set up for your VPS):
 
     ![user-prompt](user-prompt.webp)
 
-  - You will then need to enter the same password you used earlier when
+  - You'll then need to enter the same password you used earlier when
     connecting by SSH from your own terminal/PowerShell window. This can be
     found by going to the [Vultr dashboard](https://my.vultr.com) and clicking
     on your VPS, if you forgot:
@@ -233,3 +241,5 @@ and [enabling browser rendering](https://developers.cloudflare.com/cloudflare-on
   - You should now be connected to your VPS via SSH in the browser:
 
     ![browser-rendered-terminal](browser-rendered-terminal.webp)
+
+## 6: Setting the Vultr firewall
