@@ -40,7 +40,7 @@ below summarize the official
   address are required to register the domain, Cloudflare will redact almost all
   of this information so that your domain name will not be publicly associated
   with your phone number, address, etc.
-  - You can read about redaction [here](https://developers.cloudflare.com/registrar/account-options/whois-redaction/),
+  - You can read about the redaction [here](https://developers.cloudflare.com/registrar/account-options/whois-redaction/),
     and you can see an example of what the publicly available data looks like
     after registration by searching for my domain, [ldmitch.dev](https://ldmitch.dev),
     in [Cloudflare's RDAP portal](https://rdap.cloudflare.com). Notice that even
@@ -62,10 +62,10 @@ mentioned below:
 
 I have linked to the relevant Cloudflare documentation page for each setting
 listed. Please read the linked page(s) carefully before altering any setting if
-you don't know what it does.
+you don't already know what it does.
 
 - Go to "DNS" > "Settings" and enable [DNSSEC](https://developers.cloudflare.com/dns/dnssec/).
-  Follow the prompts and note that it could take some time for changes to
+  Follow the prompts and note that it could take some time for the change to
   propogate, but you can move on with the following steps without having to
   stick around and wait.
 - Go to "SSL/TLS" > "Overview" and set the
@@ -108,10 +108,11 @@ and end up with the right product.
   pick at first. With Vultr, it's easy to upgrade to a more powerful VPS but you
   can't downgrade (yet). You should look up the hardware requirements of the
   services you're interested in hosting to decide.
-  - For instance, while Matrix/Element <cite>don't currently publish hardware
-    requirements[^1]</cite>, most online resources recommend at least 1 GB of
-    RAM and plenty of storage space for messages/media. Since I want to run my
-    own Synapse server, I configured my VPS with 2 GB of RAM and a 50 GB NVMe.
+  - For instance, while Matrix Synapse/Element <cite>don't currently publish
+    hardware requirements[^1]</cite>, most online resources recommend at least 1
+    GB of RAM and plenty of storage space for messages/media. Since I want to
+    run my own Synapse server, I configured my VPS with 2 GB of RAM and a 50 GB
+    NVMe.
 - For "Additional Features", make sure "IPv6" is selected, and then choose
   anything else you're interested in.
 - Pick any server hostname and click "Deploy Now". Wait for the installation to
@@ -162,11 +163,11 @@ once again.
 
     - I already have a tunnel setup on this server, so my client IP address (the
       "FROM" column) isn't shown here, but yours should be.
-- Returning now to "Install and run connectors" page of the tunnel 
+- Returning now to the "Install and run connectors" page of the tunnel 
   configuration in Cloudflare, choose either Debian or RedHat depending on what
   your VPS operating system is based on.
-- Select "64-bit" as your architecture, then copy the command labeled for "If
-  you don't have cloudflared installed on your machine".
+- Select "64-bit" as your architecture, then copy the command under the label:
+  "If you don't have cloudflared installed on your machine".
 - Paste the copied command into your terminal with the active SSH connection,
   and wait for it to finish.
 - Return to the tunnel page in your browser, and you should see a new entry
