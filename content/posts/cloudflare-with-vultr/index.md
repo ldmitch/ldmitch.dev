@@ -17,7 +17,7 @@ tags = ["vultr", "cloudflare"]
 3. [Rent a VPS](#3-rent-a-vps-from-vultr)
 4. [Install a tunnel](#4-install-cloudflare-tunnel)
 5. [Access your VPS from the browser](#5-access-your-vps-from-the-browser)
-6. [Settings the Vultr firewall](#6-setting-the-vultr-firewall)
+6. [Set the Vultr firewall](#6-set-the-vultr-firewall)
 
 ## 1: Buy a domain name with Cloudflare
 
@@ -242,4 +242,4 @@ and [enabling browser rendering](https://developers.cloudflare.com/cloudflare-on
 
     ![browser-rendered-terminal](browser-rendered-terminal.webp)
 
-## 6: Setting the Vultr firewall
+## 6: Set the Vultr firewall
