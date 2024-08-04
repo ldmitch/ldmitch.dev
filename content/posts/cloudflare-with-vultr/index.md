@@ -10,6 +10,8 @@ tags = ["vultr", "cloudflare"]
 
 ## Motivation
 
+
+
 ## Contents
 
 1. [Buy a domain](#1-buy-a-domain-name-with-cloudflare)
@@ -18,12 +20,13 @@ tags = ["vultr", "cloudflare"]
 4. [Install a tunnel](#4-install-cloudflare-tunnel)
 5. [Access your VPS from the browser](#5-access-your-vps-from-the-browser)
 6. [Set the Vultr firewall](#6-set-the-vultr-firewall)
+7. [Conclusion](#conclusion)
 
 ## 1: Buy a domain name with Cloudflare
 
 While it isn't strictly necessary to use Cloudflare as your registrar, it will
 simplify the setup process of the server since you can quickly enable security
-settings for your domain and setup appropriate DNS records. The instructions
+settings for your domain and set up appropriate DNS records. The instructions
 below summarize the official
 [Cloudflare documentation](https://developers.cloudflare.com/registrar/get-started/register-domain):
 
@@ -201,7 +204,7 @@ and [enabling browser rendering](https://developers.cloudflare.com/cloudflare-on
 
   ![identity-providers](identity-providers.webp)
 
-  - The above settings setup your authentication page so that you will be
+  - The above settings set up your authentication page so that you will be
     prompted to enter an email address, and if that email is on the allowlist,
     it will be sent a one-time code that you can paste into your browser and
     authenticate yourself.
@@ -230,7 +233,9 @@ and [enabling browser rendering](https://developers.cloudflare.com/cloudflare-on
     generated user that Vultr set up for your VPS):
 
     ![user-prompt](user-prompt.webp)
-
+    - Notice for Apple device owners: **the browser rendered terminal will not
+      work with lockdown mode enabled**, so just whitelist the site in Safari
+      and you will avoid the thirty minutes of troubleshooting I went through.
   - You'll then need to enter the same password you used earlier when
     connecting by SSH from your own terminal/PowerShell window. This can be
     found by going to the [Vultr dashboard](https://my.vultr.com) and clicking
@@ -257,7 +262,7 @@ The below instructions are a summary of [these ones from Vultr](https://docs.vul
 - Click [this link](https://my.vultr.com/firewall/) to open the Vultr Firewall
   page.
 - Click "+ Add Firewall Group" from the top right of the page.
-- Add any rule, like the one I have setup below, to both the IPv4 *and* IPv6
+- Add any rule, like the one I have set up below, to both the IPv4 *and* IPv6
   rule sets by clicking the "+" icon on the far right side (you can remove this
   rule in a second, so it doesn't really matter what you put):
 
@@ -270,7 +275,7 @@ The below instructions are a summary of [these ones from Vultr](https://docs.vul
   ![vultr-activated-firewall](vultr-activated-firewall.webp)
   - Again, make sure to perform the above step for ***both the IPv4 rules and
     for IPv6***.
-- Once your drop rules are setup, you can attach the firewall to your VPS.
+- Once your drop rules are set up, you can attach the firewall to your VPS.
   Return to the ["Compute" page](https://my.vultr.com/), click on your VPS then
   click "Settings" and choose "Firewall" from the sidebar:
 
@@ -281,17 +286,16 @@ The below instructions are a summary of [these ones from Vultr](https://docs.vul
   - Vultr will notify you that it can take up to 120 seconds for firewall rules
     to propagate, so try to wait that long before moving on to the test step
     below.
-- Once the firewall has been added to your VPS, you can test whether all
-  incoming connections are blocked by trying to access the server via SSH like
-  you did earlier to install the Cloudflare tunnel connector. For a refresher,
-  return to [part 4](#4-install-cloudflare-tunnel) and start from the bullet
-  point listed as:
+- Once the firewall has been added to your VPS, you can test whether incoming
+  connections are properly blocked by trying to access the server via SSH like
+  you did earlier. For a refresher, return to [part 4](#4-install-cloudflare-tunnel)
+  and start from the bullet point listed as:
 
   `You'll now be prompted to "Install and run a connector". To do this, we are
   going to connect to the VPS via SSH`
-  - If the firewall is setup correctly, when you run the `ssh` command from your
-    terminal like before, the terminal window should "hang" (i.e., freeze) for
-    about a minute, before finally giving you a message like:
+  - If the firewall is set up correctly, when you run the `ssh` command from
+    your terminal like before, the terminal window should "hang" (i.e., freeze)
+    for about a minute, before finally giving you a message like:
 
     `ssh: connect to host <VPS IP address> port 22: Operation timed out`
 - Access through Cloudflare tunnel should still work fine. You can verify this
@@ -301,3 +305,18 @@ The below instructions are a summary of [these ones from Vultr](https://docs.vul
   - You don't actually need to login. So long as the interface still asks you
     for a username and password, the tunnel is up and running and the VPS can be
     accessed remotely.
+
+## Conclusion
+
+That's it. You should now have a virtual private server hosted on Vultr that can
+only be managed by any users you have explicitly allowed through Cloudflare Zero
+Trust. You can use this VPS to host whatever services you want, and in order to
+access them over the internet, just return to the Vultr Firewall you set up and
+add a rule allowing access to the server over that port.
+
+For instance, if you wanted to run a web server, you would probably open ports
+80 and 443 to the internet. If you decided to use Cloudflare as your reverse
+proxy to the server, Vultr makes it easy to restrict access to a certain port
+by setting the "Source" for your rule to "Cloudflare". You can take advantage of
+Cloudflare's free DDoS protection and security settings and ensure that any
+traffic trying to bypass the proxy is blocked.
