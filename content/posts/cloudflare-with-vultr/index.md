@@ -1,10 +1,10 @@
 +++
 author = "Liam Mitchell"
 title = "Cloudflare With Vultr"
-date = 2024-07-15
-lastmod = 2024-07-15
+date = 2024-08-04
+lastmod = 2024-08-04
 description = "How to secure access to a Vultr server with Cloudflare Tunnel"
-draft = true
+draft = false
 tags = ["vultr", "cloudflare"]
 +++
 
