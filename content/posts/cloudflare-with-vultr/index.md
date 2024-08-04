@@ -10,7 +10,26 @@ tags = ["vultr", "cloudflare"]
 
 ## Motivation
 
+There are plenty of tutorials online on how to setup a virtual private server,
+many of them using Vultr as the hosting provider. However, being new to web
+hosting, I was worried about the security of my server and how I should go about
+locking it down so that no one else could access it. 
 
+I did some research on the topic and decided on using Cloudflare Zero Trust to
+control access to my Vultr VPS. The end result requires very little compromise
+from my end and I can still manage and maintain services without any extra
+overhead, but all incoming connections to the server are blocked. Authentication
+is handled by Cloudflare, who in my opinion are a reputable security company, so
+that I don't have to spend any time beyond the initial setup worrying about
+someone hijacking my hosted services.
+
+The reason for writing this post is to summarize the steps I took so that I or
+anyone else can quickly mimic my setup in the future without having to piece
+together the various pages of documentation again to get to the same end result.
+I have linked to the official documentation from Cloudflare and Vultr where
+possible so that you can easily find clarification on any of the steps listed,
+and so that if you want to adjust the configurations I use, you'll have the
+proper starting place from which to do so.
 
 ## Contents
 
