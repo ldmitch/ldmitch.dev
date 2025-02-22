@@ -17,3 +17,4 @@ Alternatively, my main forms of contact are <cite>listed below[^1]</cite>:
 [![GitHub](/images/github-light.webp)](https://github.com/ldmitch)
 [![LinkedIn](/images/linkedin-light.webp)](https://www.linkedin.com/in/liamdmitchell/)
 [![Signal](/images/signal-light.webp)](https://signal.me/#eu/D9ahAdeW8Zbb9Nlp_Priz3iuK5Cce0le33frY5Xlt31O0QdNprdF5ZmoxcCf88Ga)
+[![X](/images/x-light.webp)](https://x.com/lidomitch)
