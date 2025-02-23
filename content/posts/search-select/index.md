@@ -4,7 +4,7 @@ title = "Search Select"
 date = 2025-02-22
 lastmod = 2025-02-22
 description = "An Apple Shortcut to easily access multiple search engines and LLMs"
-draft = true
+draft = false
 tags = ["search", "ai", "web"]
 +++
 
@@ -61,6 +61,8 @@ a list of providers. The current list is made up of:
 - Mistral
 - Perplexity
 
+![Select a search engine](search-select.webp)
+
 For ChatGPT and Grok, you will also need to pick a specific model option for
 that provider. This could be something like `o3-mini-high (web)` or just the
 base `Grok 3` model. These specific models and options (like web access or
@@ -72,13 +74,17 @@ https://chatgpt.com/?temporary-chat=true&model=o3-mini-high&hints=search&q=%s
 The final parameter, `q=%s`, is where your actual question/message will be
 attached.
 
+![Select an LLM](model-select.webp)
+
 After making a provider selection, you will enter your query in the text box
 that opens. This message will be URL encoded and put in place of the `%s` seen
 in that last URL parameter shown above. For LLMs specifically, you can still
-use line breaks with the enter key. On iOS, you can submit the message by
+use line breaks with the Enter key. On iOS, you can submit the message by
 tapping the blue "Done" button, and on macOS, either click that same button or
-use Cmd + Enter to submit. In either case, just clicking the enter key *will
+use Cmd + Enter to submit. In either case, just clicking the Enter key *will
 not* submit your message, and will instead add a line break.
+
+![Enter a query](enter-query.webp)
 
 Upon submitting, your message will be sent to the chosen search engine or LLM,
 and the respective web page will open in your default browser. For some
@@ -87,6 +93,8 @@ your browser before you can get a response to your query. For ChatGPT, some
 models like o1 and o3-mini-high will require a paid plan. This shortcut does not
 use any public APIs, so you will still need to interact with each service's
 website directly, if you decide to use them.
+
+![Grok's response to the query](grok-response.webp)
 
 ## Installation
 
@@ -98,6 +106,16 @@ Click the "Get Shortcut" button at the bottom of the screen and allow iCloud to
 open the Shortcuts app. From there, you can preview the shortcut by clicking the
 ellipsis menu (button with three dots). Then, all you need to do is click the
 "Add Shortcut" button, and my shortcut will be added to your library.
+
+![Add the shortcut](add-shortcut.webp)
+
+While this shortcut does not send data off anywhere or execute arbitrary code
+(both of which *are* possible with shortcuts), you should still check out the
+whole shortcut from top-to-bottom, as you should with any third-party software
+you install. This will also help to familiarize yourself with the structure, so
+that you can make any changes you want more easily
+
+![Shortcut privacy settings](shortcut-privacy.webp)
 
 ## Triggering the shortcut
 
