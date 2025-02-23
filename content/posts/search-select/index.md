@@ -28,13 +28,13 @@ geographical availability. And beyond even those technical limitations, they all
 have varying intelligence capabilities, strengths, and weaknesses. For instance,
 of all the search engines I have tried, I generally find the best results with
 Kagi. However, Kagi's "Quick Answer" feature, while powered by an LLM, is not
-nearly as intelligent as frontier reasoning models like Grok 3. But Kagi is 
-much, much faster. So there are different reasons I might need to use one tool 
-or the other, depending on the circumstances.
+nearly as intelligent as frontier reasoning models like Grok 3. But Kagi is
+much, much faster. So there are different reasons I might need to use one tool
+or another, depending on the circumstances.
 
-To facilitate better-using all of these tools, I built an Apple Shortcut that
+To facilitate better use of all of these tools, I built an Apple Shortcut that
 allows me to select a search engine or LLM, enter a query, and have that query
-immediately be sent to the chosen tool in my default browser. This shortcut,
+immediately sent to the chosen tool in my default browser. This shortcut,
 "Search Select", can be added to the macOS dock or bound to the action button on
 recent iPhones. This makes it incredibly easy to quickly select a tool, enter a
 query, and get a response back.
@@ -65,7 +65,7 @@ For ChatGPT and Grok, you will also need to pick a specific model option for
 that provider. This could be something like `o3-mini-high (web)` or just the
 base `Grok 3` model. These specific models and options (like web access or
 "Think" mode) are configured through URL parameters that are supported by
-ChatGPT or Grok. For instance, the full URL used for `o3-mini-high (web)` is: 
+ChatGPT or Grok. For instance, the full URL used for `o3-mini-high (web)` is:
 
 https://chatgpt.com/?temporary-chat=true&model=o3-mini-high&hints=search&q=%s
 
@@ -90,7 +90,7 @@ website directly, if you decide to use them.
 
 ## Installation
 
-The installation process is easy- on your Apple device, just open this link:
+The installation process is easy—on your Apple device, just open this link:
 
 https://www.icloud.com/shortcuts/c1c509844dd44c3382e0dccbfbb18985
 
