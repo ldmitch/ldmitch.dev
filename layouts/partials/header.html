@@ -1,2 +1,7 @@
-<a href="{{ relURL .Site.Home.RelPermalink }}" class="title"><h1>{{ .Site.Title }}</h1></a>
+<a href="{{ relURL .Site.Home.RelPermalink }}" class="title">
+    <div class="title-container">
+        <img src="/images/favicon-32x32.png" alt="Profile picture" class="profile-pic">
+        <h1>{{ .Site.Title }}</h1>
+    </div>
+</a>
 <nav>{{- partial "nav.html" . -}}</nav>

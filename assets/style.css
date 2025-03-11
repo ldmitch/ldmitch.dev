@@ -30,6 +30,13 @@ a {
   text-decoration: none;
   border: 0;
 }
+
+.title-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .title h1 {
   border-bottom: 2px solid #eee;
   font-size: 24px;
@@ -38,6 +45,12 @@ a {
 
 .title span {
   font-weight: 400;
+}
+
+.profile-pic {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
 }
 
 nav a {
@@ -158,7 +171,7 @@ figure {
   margin-inline-end: 0em;
 }
 
-figcaption > p {
+figcaption>p {
   margin-block-start: 0px;
   text-align: center;
   font-style: italic;
