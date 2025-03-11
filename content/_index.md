@@ -17,7 +17,7 @@ An Apple Shortcut that provides quick access to multiple search engines and
 LLMs, allowing you to easily choose between different providers and submit
 queries directly from your dock or iPhone action button.
 
-[Install from iCloud](https://www.icloud.com/shortcuts/c1c509844dd44c3382e0dccbfbb18985) | [Read more](/posts/search-select)
+[Install from iCloud](https://www.icloud.com/shortcuts/6220472ce96f46e582bda70b5906135a) | [Read more](/posts/search-select)
 
 ### Contact
 

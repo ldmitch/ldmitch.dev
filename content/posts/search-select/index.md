@@ -12,7 +12,7 @@ tags = ["search", "ai", "web"]
 
 To skip my meandering, install the shortcut from this link:
 
-https://www.icloud.com/shortcuts/c1c509844dd44c3382e0dccbfbb18985
+https://www.icloud.com/shortcuts/6220472ce96f46e582bda70b5906135a
 
 ## Motivation
 
