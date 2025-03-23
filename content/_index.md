@@ -4,8 +4,8 @@ menu: "main"
 weight: 1
 ---
 
-This is my personal website. It will eventually link to my various self-hosted
-services along with blog posts on how I set them up, among other topics. These
+This is my personal website. I've linked to my various self-hosted
+services below in [projects](#projects), along with [blog posts](https://ldmitch.dev/posts) on how I set them up, among other topics. These
 posts are mostly for my own reference, so they might not always be fully
 up-to-date, but if you notice any issues you can
 [create an issue in the GitHub repository](https://github.com/ldmitch/ldmitch.dev/issues/new).
