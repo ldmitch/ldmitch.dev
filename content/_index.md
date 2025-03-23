@@ -12,6 +12,11 @@ up-to-date, but if you notice any issues you can
 
 ### Projects
 
+#### Cloud RSS
+A very early, bug-prone version of a self-hostable browser-based RSS and ATOM reader. Articles from the past 48 hours are available, with content refreshing in the background every 30 minutes. Compared to a traditional RSS reader app, Cloud RSS allows you to read specific articles without connecting to the original website, reducing bandwidth consumption and lowering the risk of tracking.
+
+[Check out Cloud RSS](https://news.ldmitch.dev/)
+
 #### Search Select
 An Apple Shortcut that provides quick access to multiple search engines and
 LLMs, allowing you to easily choose between different providers and submit
