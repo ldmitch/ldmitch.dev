@@ -17,7 +17,7 @@ enableRobotsTXT = true
 
 [params]
   description = "Liam Mitchell's personal site"
-  favicon = "images/favicon-32x32.png"
+  # favicon = "images/favicon-32x32.png"
   madeWith = "Layout and styling based on [Bear Cub](https://github.com/clente/hugo-bearcub)"
   designedToLast = "This page is [designed to last](https://jeffhuang.com/designed_to_last/)"
 
