@@ -33,5 +33,5 @@ My main forms of contact are <cite>listed below[^1]</cite>:
 [![Email](/images/email-light-50.webp)](mailto:liam.mitchell@uwaterloo.ca)
 [![GitHub](/images/github-light-50.webp)](https://github.com/ldmitch)
 [![LinkedIn](/images/linkedin-light-50.webp)](https://www.linkedin.com/in/liamdmitchell/)
+[![Bluesky](/images/bluesky-light-50.webp)](https://bsky.app/profile/ldmitch.dev)
 [![Signal](/images/signal-light-50.webp)](https://signal.me/#eu/D9ahAdeW8Zbb9Nlp_Priz3iuK5Cce0le33frY5Xlt31O0QdNprdF5ZmoxcCf88Ga)
-[![X](/images/x-light-50.webp)](https://x.com/lidomitch)
