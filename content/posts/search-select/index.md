@@ -2,7 +2,7 @@
 author = "Liam Mitchell"
 title = "Search Select"
 date = 2025-02-22
-lastmod = 2025-02-22
+lastmod = 2025-03-10
 description = "An Apple Shortcut to easily access multiple search engines and LLMs"
 draft = false
 tags = ["search", "ai", "web"]
