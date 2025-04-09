@@ -53,6 +53,7 @@ a {
     border-radius: 50%;
 }
 
+/* purgecss ignore */
 .nav-divider {
     margin: 0 10px 0 5px;
     border-left: 1px solid #c9d1d9;
@@ -61,6 +62,7 @@ a {
     vertical-align: middle;
 }
 
+/* purgecss ignore */
 .external-link-icon {
     display: inline-block;
     vertical-align: -1px;
