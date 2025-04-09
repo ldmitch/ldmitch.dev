@@ -18,6 +18,8 @@ https://news.ldmitch.dev
 
 - [Motivation](#motivation)
 - [Cloud RSS](#cloud-rss)
+- [Self-hosting](#self-hosting)
+- [License](#license)
 
 ## Motivation
 
