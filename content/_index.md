@@ -35,3 +35,4 @@ My main forms of contact are <cite>listed below[^1]</cite>:
 [![LinkedIn](/images/linkedin-light-50.webp)](https://www.linkedin.com/in/liamdmitchell/)
 [![Bluesky](/images/bluesky-light-50.webp)](https://bsky.app/profile/ldmitch.dev)
 [![Signal](/images/signal-light-50.webp)](https://signal.me/#eu/D9ahAdeW8Zbb9Nlp_Priz3iuK5Cce0le33frY5Xlt31O0QdNprdF5ZmoxcCf88Ga)
+[![SimpleX Chat](/images/simplex-light-50.webp)](https://simplex.chat/contact#/?v=2-7&smp=smp%3A%2F%2FenEkec4hlR3UtKx2NMpOUK_K4ZuDxjWBO1d9Y4YXVaA%3D%40smp14.simplex.im%2FlWShApCq14Bq05_Y-xFTmSWIaxUDo5ny%23%2F%3Fv%3D1-3%26dh%3DMCowBQYDK2VuAyEA9cd1DJk2_a5wl6erncBGxVMvP74RnTVg_NqPfIJ2jiE%253D%26srv%3Daspkyu2sopsnizbyfabtsicikr2s4r3ti35jogbcekhm3fsoeyjvgrid.onion)
