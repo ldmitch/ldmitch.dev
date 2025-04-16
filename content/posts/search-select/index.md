@@ -2,7 +2,7 @@
 author = "Liam Mitchell"
 title = "Search Select"
 date = 2025-02-22
-lastmod = 2025-03-10
+lastmod = 2025-04-16
 description = "An Apple Shortcut to easily access multiple search engines and LLMs"
 draft = false
 tags = ["search", "ai", "web"]
@@ -12,7 +12,7 @@ tags = ["search", "ai", "web"]
 
 To skip my meandering, install the shortcut from this link:
 
-https://www.icloud.com/shortcuts/6220472ce96f46e582bda70b5906135a
+https://www.icloud.com/shortcuts/68fac5b11c2f486a8a4f29a7fe0041b9
 
 ## Motivation
 
@@ -64,12 +64,12 @@ a list of providers. The current list is made up of:
 ![Select a search engine](search-select.webp)
 
 For ChatGPT and Grok, you will also need to pick a specific model option for
-that provider. This could be something like `o3-mini-high (web)` or just the
+that provider. This could be something like `o4-mini-high (web)` or just the
 base `Grok 3` model. These specific models and options (like web access or
 "Think" mode) are configured through URL parameters that are supported by
-ChatGPT or Grok. For instance, the full URL used for `o3-mini-high (web)` is:
+ChatGPT or Grok. For instance, the full URL used for `o4-mini-high (web)` is:
 
-https://chatgpt.com/?temporary-chat=true&model=o3-mini-high&hints=search&q=%s
+https://chatgpt.com/?temporary-chat=true&model=o4-mini-high&hints=search&q=%s
 
 The final parameter, `q=%s`, is where your actual question/message will be
 attached.

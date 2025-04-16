@@ -22,7 +22,7 @@ An Apple Shortcut that provides quick access to multiple search engines and
 LLMs, allowing you to easily choose between different providers and submit
 queries directly from your dock or iPhone action button.
 
-[Install from iCloud](https://www.icloud.com/shortcuts/6220472ce96f46e582bda70b5906135a) | [Read more](/posts/search-select)
+[Install from iCloud](https://www.icloud.com/shortcuts/68fac5b11c2f486a8a4f29a7fe0041b9) | [Read more](/posts/search-select)
 
 ### Contact
 
